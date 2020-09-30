@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculadora enem</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<style>
+			body{
+				font-family: 'Roboto', sans-serif;
+				color: lightgrey;
+				background-color: #130f0d;
+			}
+			.container{
+				padding: 10vh 10vw 10vh 10vw;
+			}
+			input[type=text]{
+				background-color: gray;
+			}
+			input[type=text]:focus{
+				background-color: lightslategray;
+			}
+			a{
+				text-decoration: none;
+				color: lightgrey;
+			}
+			a:hover{
+				text-decoration: none;
+				color: lightgrey;
+			}
+			a::visited{
+				text-decoration: none;
+				color: lightgrey;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<center>
+						<h1>Felicidade ou Lágrimas</h1>
+					</center>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+			<br>
+			<form method="post" id="calc" class="form-group">
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">
+						<center>
+							<label for="lp">Linguagens:</label>
+							<input type="text" id="lp" class="form-control" name="ling" required>
+							<label for="plp">↟ Peso:</label>
+							<input type="text" id="plp" class="form-control" name="pling" required>
+						</center>			
+					</div>
+					<div class="col-md-2">
+						<center>
+							<label for="ch">Humanas:</label>
+							<input type="text" id="ch" class="form-control" name="huma" required>
+							<label for="pch">↟ Peso:</label>
+							<input type="text" id="pch" class="form-control" name="phuma" required>
+						</center>
+					</div>
+					<div class="col-md-2">
+						<center>
+							<label for="cn">Natureza:</label>
+							<input type="text" id="cn" class="form-control" name="natu" required>
+							<label for="pcn">↟ Peso:</label>
+							<input type="text" id="pcn" class="form-control" name="pnatu" required>
+						</center>
+					</div>
+					<div class="col-md-2">
+						<center>
+							<label for="mat">Matemática:</label>
+							<input type="text" id="mat" class="form-control" name="mate" required>
+							<label for="pmat">↟ Peso:</label>
+							<input type="text" id="pmat" class="form-control" name="pmate" required>
+						</center>	
+					</div>
+					<div class="col-md-2">
+						<center>
+							<label for="red">Redação:</label>
+							<input type="text" id="red" class="form-control" name="reda" required>
+							<label for="pred">↟ Peso:</label>
+							<input type="text" id="pred" class="form-control" name="preda" required>
+						</center>
+					</div>
+					<div class="col-md-1"></div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-3">
+						<label>&nbsp;</label>
+						<button type="reset" class="btn btn-block btn-outline-warning">Limpar</button>
+					</div>
+					<div class="col-md-3">
+						<label>&nbsp;</label>
+						<button type="submit" class="btn btn-block btn-outline-success">Calcular</button>
+					</div>
+					<div class="col-md-4">
+						<center>
+							<label for="screen">↡ Resultado:</label>
+							<input type="text" id="screen" class="form-control" readonly>
+						</center>
+					</div>
+					<div class="col-md-1"></div>
+				</div>
+			</form>
+			<br>
+			<div class="row">
+				<div class="col-md-12">
+					<footer>
+						<center>
+							Feito com ❤ por <a href="https://github.com/otaviobambans/">Otávio Rodrigues Bambans</a>
+						</center>
+					</footer>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+		<script>
+			$(document).ready((event)=>{
+				$("#calc").submit((event)=>{
+					event.preventDefault()
+					let notas = []
+					notas[0] = parseFloat($("#lp").val().replace(',', '.'))
+					notas[1] = parseFloat($("#ch").val().replace(',', '.'))
+					notas[2] = parseFloat($("#cn").val().replace(',', '.'))
+					notas[3] = parseFloat($("#mat").val().replace(',', '.'))
+					notas[4] = parseFloat($("#red").val().replace(',', '.'))
+					let pesos = []
+					pesos[0] = parseFloat($("#plp").val().replace(',', '.'))
+					pesos[1] = parseFloat($("#pch").val().replace(',', '.'))
+					pesos[2] = parseFloat($("#pcn").val().replace(',', '.'))
+					pesos[3] = parseFloat($("#pmat").val().replace(',', '.'))
+					pesos[4] = parseFloat($("#pred").val().replace(',', '.'))
+					let dividendo = (notas[0]*pesos[0])+(notas[1]*pesos[1])+(notas[2]*pesos[2])+(notas[3]*pesos[3])+(notas[4]*pesos[4])
+					let divisor = (pesos[0]+pesos[1]+pesos[2]+pesos[3]+pesos[4])
+					let media = dividendo/divisor
+					$("#screen").val(media.toFixed(2).replace('.', ','))
+				})
+			})
+		</script>
+	</body>
+</html>
